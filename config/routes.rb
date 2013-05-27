@@ -1,5 +1,6 @@
 Vindle::Application.routes.draw do
   
+  resources :videos
   resources :bundles
   
   match '/auth/:provider/callback' => 'auth#callback'
