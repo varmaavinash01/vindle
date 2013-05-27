@@ -36,3 +36,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem "omniauth", ">= 1.1.3"
+gem 'omniauth-yammer'
+gem 'redis'

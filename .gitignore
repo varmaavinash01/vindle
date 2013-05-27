@@ -14,7 +14,6 @@
 /log/*.log
 /tmp
 
-
 # Ignore setting file
-
 /config/settings.yml
+

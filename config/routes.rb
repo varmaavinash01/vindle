@@ -1,4 +1,19 @@
 Vindle::Application.routes.draw do
+  
+  resources :bundles
+  
+  match '/auth/:provider/callback' => 'auth#callback'
+  
+  get "auth/index"
+  
+  get "auth/authenticate"
+
+  get "auth/callback"
+
+  get "auth/logout"
+
+  get "auth/stats"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
