@@ -1,5 +1,7 @@
 Vindle::Application.routes.draw do
   
+  resources :bundles
+  
   match '/auth/:provider/callback' => 'auth#callback'
   
   get "auth/index"

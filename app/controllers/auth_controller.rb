@@ -10,11 +10,13 @@ class AuthController < ApplicationController
     @user = User.build(request.env['omniauth.auth'])
     User.save(@user)
     session[:user] = @user
-    #redirect_to :controller => "" , :action => ""
+    redirect_to :controller => "bundles" , :action => "index"
+    #redirect_to "/bundles"
   end
 
   def logout
     session.clear
+    redirect_to :action => "index"
   end
 
   def stats
