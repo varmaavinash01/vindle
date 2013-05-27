@@ -7,10 +7,14 @@ class AuthController < ApplicationController
   end
 
   def callback
-    @user = request.env['omniauth.auth']
+    @user = User.build(request.env['omniauth.auth'])
+    User.save(@user)
+    session[:user] = @user
+    #redirect_to :controller => "" , :action => ""
   end
 
   def logout
+    session.clear
   end
 
   def stats

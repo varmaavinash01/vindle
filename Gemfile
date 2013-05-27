@@ -39,3 +39,4 @@ gem 'jquery-rails'
 
 gem "omniauth", ">= 1.1.3"
 gem 'omniauth-yammer'
+gem 'redis'
