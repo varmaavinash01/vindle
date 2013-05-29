@@ -1,4 +1,20 @@
-<h1>Bundles#index</h1>
-<p>Find me in app/views/bundles/index.html.erb</p>
-<%= @user %>
-<%= @user.to_json if @user %>
+<div class="well">
+  <h2>All Bundles </h2>
+  <%= @bundles.to_json if @bundles %>
+</div><br>
+
+<div class="well">
+  <a role="button" class="btn btn-primary" data-toggle="modal" href="#newBundleForm"> + Add bundle </a>
+</div>
+
+<div id="newBundleForm" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <%= form_tag('/bundles', :method => "post") do %>
+    <fieldset>
+      <legend> Add new bundle </legend>
+      <%= hidden_field_tag("user_id" , @user["uid"]) %>
+      <label>Bundle Name </label>
+      <%= text_field_tag('bname') %>
+      <%= submit_tag '+ Add' , :class => "btn btn-success" %>
+    </fieldset>
+  <% end %>
+</div>
