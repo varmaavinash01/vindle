@@ -21,5 +21,13 @@
 <% end %>
 <%= yield %>
 
+<script>
+$(document).ready(function() {
+    $(".modal").on('shown', function() {
+        $(this).find("[autofocus]:first").focus();
+    });
+});
+</script>
+
 </body>
 </html>

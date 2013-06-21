@@ -1,3 +1,179 @@
+<style type="text/css">
+.page{
+height: 100%;
+width: 100%;
+background: black;
+padding-top: 5%;
+padding-bottom: 5%;
+
+
+}
+
+.mainPanel{
+width: 100%;
+height: 90%;
+#background-image:url('http://selulargroup.id.rakuten-static.com/tab2_7inch.jpg');
+#background-repeat:repeat;
+background: white;
+overflow-x: auto;
+overflow-y: hidden;
+}
+
+.leftbar {
+float: left;
+width: 5%;
+background-color: rgba(255, 255, 255, 0.8);
+height: 100%;
+z-index: 3000;
+}
+
+.rightbar {
+float: right;
+width: 5%;
+background: blue;
+height: 100%;
+background-color: rgba(255, 255, 255, 0.8);
+z-index: 3000;
+}
+
+</style>
 <div class="well">
   <%= @bundle.to_json if @bundle %>
 </div>
+
+
+    
+  <div class="event-card">
+    <div class="tag">
+    </div>
+    <div class="event-title">
+      Global Platform <br>
+      <span class="time"> 12:00 - 13:30 JST</span><br><br>
+      <div class="presenter"><img class="pic" src="https://mug0.assets-yammer.com/mugshot/images/55x55/rdBXHWZRwJFCgQmKhXM-CNqGGXdRkWJv"><div class="presenter-details">Marthinussen, Terje </div></div>
+      <div class="presenter"><img class="pic" src="https://mug0.assets-yammer.com/mugshot/images/55x55/mJbCB3V3vxQNPHlJPMvhBhCbK7G9kNhw">James, Chen </div>
+    </div>
+  </div>
+    <div class="event-card">
+    <div class="tag">
+    </div>
+    <div class="event-title">
+    Cloud Technologies<br>
+    <span class="time"> 12:00 - 13:30 JST</span><br><br>
+    <div class="presenter"><img class="pic" src="https://mug0.assets-yammer.com/mugshot/images/55x55/rdBXHWZRwJFCgQmKhXM-CNqGGXdRkWJv">Marthinussen, Terje </div>
+    <div class="presenter"><img class="pic" src="https://mug0.assets-yammer.com/mugshot/images/55x55/mJbCB3V3vxQNPHlJPMvhBhCbK7G9kNhw">James, Chen </div>
+    </div>
+  </div>
+  <div class="event-card">
+    <div class="tag">
+    </div>
+    <div class="event-title">
+    Automation
+    </div>
+  </div><br><br><br>
+    <div class="event-card">
+    Event # 1
+  </div>
+    <div class="event-card">
+    Event # 2
+  </div>
+    <div class="event-card">
+    Event # 3
+  </div>
+  <div class="event-card">
+    Event # 4
+  </div>
+</div>
+<!-- 
+   <div class="mainPanel">
+    <div class="rightbar">
+   </div>
+   <div class="leftbar">
+   </div>
+    <div class="entity"><img style="margin:0;" width="280; height: 100px;" src="//i1.ytimg.com/vi/p9DysPIpt9o/mqdefault.jpg" alt="Thumbnail"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+    <div class="entity"></div>
+  </div>
+
+-->
+
+<script>
+    $(document).ready(function(){      
+      $('.entity').each(function(index){
+        var rand = '#'+ Math.floor(Math.random()*16777215).toString(16)
+        $(this).css("background", rand);
+        /* $(this).css("height",100 + Math.floor(Math.random() * 100));
+        $(this).css("width", 150 + Math.floor(Math.random() * 50));
+         *///console.log("color changed" + rand);
+         $(this).css("height",150);
+        $(this).css("width", 200);
+        
+       }); 
+      
+     });
+    
+    $('.entity').click(function(){
+        $(this).animate({
+            height: 470,
+            width: 630,
+            opacity: 1
+        }, 600, function() {
+            //$(this).fadeTo(100, 1);
+            //$(this).css("float","right");
+            var pageWidth = parseInt($(".page").css("width"), 10) / 2;
+            var leftOffset = parseInt($(this).offset().left, 10);
+            
+            if(leftOffset > pageWidth ){
+                //$(this).css("float","right");
+            } else {
+                //$(this).css("float","left");
+            }
+            
+            //if ($(this).css("margin-right"))
+        });
+        
+        $(this).css("height", "300px");
+        $(this).css("width", "350px");      
+        var thisvar = this;
+         $('.entity').each(function(index){
+                  if(this != thisvar) {
+                  var rand = '#'+ Math.floor(Math.random()*16777215).toString(16)
+                  //$(this).css("background", rand);
+                 /*  $(this).css("height",100 + Math.floor(Math.random() * 100));
+                  $(this).css("width", 150 + Math.floor(Math.random() * 50)); */
+                  $(this).css("height",150);
+                  $(this).css("width", 200);
+                  $(this).fadeTo("fast", 0.3);
+                  $(this).css("float", "left");
+                  //console.log("color changed" + rand);
+                  }
+               });
+    });
+</script>

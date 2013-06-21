@@ -1,7 +1,13 @@
 class Bundle
   class << self
     def all
-      _read_all("*")
+      bundles = _read_all("*")
+      
+      bundles.each do |bundle|
+        #Rails.logger.info "bundles = " + bundle["created_by"]
+        bundle["created_by"] = User.get(bundle["created_by"])
+      end
+      bundles
     end
     
     def find(id)
@@ -19,6 +25,7 @@ class Bundle
       bundle["bundle_name"] = params["bname"]
       bundle["created_by"] = params["user_id"]
       bundle["create_time"] = Time.now.utc
+      bundle["display_picture"] = ""
       ## Default karma is 0
       bundle["karma"] = "0"
       ## Bundle initially has no videos
@@ -32,7 +39,7 @@ class Bundle
     private
     def _get_next_bid
       ## TODO fix this logic. If count is zero all keys will be overwritten
-      REDIS.incr(_create_key("count")).to_s
+      REDIS.incr(Settings.app_key + ":bundlecount").to_s
     end
     
     def _create_key(id)

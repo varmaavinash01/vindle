@@ -1,6 +1,13 @@
+<link href='http://fonts.googleapis.com/css?family=Iceland' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+
 <style>
+  .logo {
+     font-family: 'Iceland', cursive;
+     font-size: 68px;
+  }
   .yammer-button {
-    background-color: #5da9e3;
+    background-color: #2975d9;
     font-size: 25px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -9,14 +16,15 @@
     box-shadow:   1px 1px 10px #CCCCCC;
     color: #FFFFFF;
     cursor: pointer;
-    #margin-left: 10px;
+    margin-top: 80px;
+    margin-left: -185px;
     outline: medium none;
     text-decoration: none;
     border: none;
     width: auto;
-    margin: 30px;
+    #margin: 30px;
     position: absolute;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Varela', sans-serif;
     text-align: center;
   }
 
@@ -24,7 +32,94 @@
     text-decoration: none;
     color: #FFFFFF;
   }
+  
+  .screen { 
+  #visibility:hidden;
+  background-color: rgba(0, 0, 0, 0.1);
+  #display: inline;
+  position: absolute;
+  #margin-left: 43%; 
+  #background: #E6F8E0;
+  #margin-top: 3%;
+  #padding: 30px;
+  width: 100%;
+  height:103%;
+}
+
+  .whatIs { 
+  #visibility:hidden;
+  font-family: 'Varela', sans-serif;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: inline;
+  position: fixed;
+  margin-left: 35%; 
+  #background: #E6F8E0;
+  margin-top: 15%;
+  padding: 30px;
+  width: 55%;
+  height:40%;
+  color: #ffffff;
+  text-align: center;
+}
+
+.dot{
+    position:absolute;
+    top:0;
+    left:0;
+    width:50px;
+    height:50px;
+    background:red;
+    border-radius:50%;
+}
+.sun{
+    width:200px;
+    height:200px;
+    position:absolute;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-name:orbit;
+    -webkit-animation-duration:5s;
+    top:50px;
+    left:50px;
+}
+
+@-webkit-keyframes orbit { 
+from { -webkit-transform:rotate(0deg) } 
+to { -webkit-transform:rotate(360deg) } 
+}
 </style>
-<div class="well">
+<div class="screen">
+</div>
+<div class="whatIs">
+  <h3>Don't miss awesome videos. Vindle it ! </h3><br><br>
+  <span class="logo">Vindle = Video Bundles</span><br>
+  
   <a href="/auth/yammer/" class="yammer-button"> Check it out using Yammer !</a>
+</div>
+<div class="well" style="width: 100%;margin-top: -10px;margin-left: -3px; margin-right:0%;">
+  <img style="margin:0;" width="280" src="//i1.ytimg.com/vi/p9DysPIpt9o/mqdefault.jpg" alt="Thumbnail">
+  <img style="margin:0;" width="280" src="//i2.ytimg.com/vi/-UxjFgiHMGw/mqdefault.jpg" alt="Thumbnail">
+  <img style="margin:0;" width="280" src="//i4.ytimg.com/vi/C7h8S6PyeMo/mqdefault.jpg" alt="Thumbnail">
+  <img style="margin:0;" width="280" src="//i1.ytimg.com/vi/ljV1NC1A91U/mqdefault.jpg" data-thumb="//i1.ytimg.com/vi/ljV1NC1A91U/mqdefault.jpg" alt="Thumbnail" data-group-key="thumb-group-4">
+  <img width="280" src="//i3.ytimg.com/vi/zpS6esfyxck/mqdefault.jpg" alt="Thumbnail">
+  <img width="280" src="//i3.ytimg.com/vi/zV_CuFrdN3A/mqdefault.jpg" data-thumb="//i3.ytimg.com/vi/zV_CuFrdN3A/mqdefault.jpg" alt="Thumbnail" data-group-key="thumb-group-5">
+  <img width="280" src="//i2.ytimg.com/vi/iyiQpMV30YQ/mqdefault.jpg" alt="Thumbnail">
+  <img width="280" data-thumb="//i1.ytimg.com/vi/HkVob5pYMhM/mqdefault.jpg" src="//i1.ytimg.com/vi/HkVob5pYMhM/mqdefault.jpg" alt="Thumbnail" data-group-key="thumb-group-4">
+  <img width="280" src="//i4.ytimg.com/vi/3w4t1dYCayM/mqdefault.jpg" data-thumb="//i4.ytimg.com/vi/3w4t1dYCayM/mqdefault.jpg" alt="Thumbnail" data-group-key="thumb-group-2">
+  <img width="280" src="//i3.ytimg.com/vi/ZH9-_GLqGC4/mqdefault.jpg" alt="Thumbnail">
+  <img width="280" src="//i4.ytimg.com/vi/_F003p4v5js/mqdefault.jpg" data-thumb="//i4.ytimg.com/vi/_F003p4v5js/mqdefault.jpg" alt="Thumbnail" data-group-key="thumb-group-4">
+  <img width="280" alt="Thumbnail" data-thumb="//i1.ytimg.com/vi/Xov0R-TVBBU/mqdefault.jpg" src="//i1.ytimg.com/vi/Xov0R-TVBBU/mqdefault.jpg" data-group-key="thumb-group-2">
+  <img width="280" alt="Thumbnail" data-thumb="//i1.ytimg.com/vi/h9MB4_e8gZ4/mqdefault.jpg" src="//i1.ytimg.com/vi/h9MB4_e8gZ4/mqdefault.jpg" data-group-key="thumb-group-5">
+  <img style="margin:0;" width="280" src="http://i1.ytimg.com/vi/MmixoG_5utk/mqdefault.jpg" alt="Thumbnail">
+  <img style="margin:0;" width="280" src="//i1.ytimg.com/vi/8_Tn5O5C5BA/mqdefault.jpg" alt="Thumbnail">
+  <img width="280" src="//i2.ytimg.com/vi/mQWeqBCgMYY/mqdefault.jpg" data-thumb="//i2.ytimg.com/vi/mQWeqBCgMYY/mqdefault.jpg" alt="Thumbnail" data-group-key="thumb-group-5">
+  <img width="280" data-thumb="//i1.ytimg.com/vi/HA_gwzx39LQ/mqdefault.jpg" src="//i1.ytimg.com/vi/HA_gwzx39LQ/mqdefault.jpg" alt="Thumbnail" data-group-key="thumb-group-4">
+  <img width="280" src="//i3.ytimg.com/vi/nKIu9yen5nc/mqdefault.jpg" alt="Thumbnail">
+  <img width="280" data-thumb="//i1.ytimg.com/vi/PltyPZlIF4A/mqdefault.jpg" src="//i1.ytimg.com/vi/PltyPZlIF4A/mqdefault.jpg" alt="Thumbnail" data-group-key="thumb-group-5">
+  <img width="280" alt="Thumbnail" src="//i2.ytimg.com/vi/MtCMtC50gwY/mqdefault.jpg">
+  <img width="280" alt="Thumbnail" data-thumb="//i1.ytimg.com/vi/LkLnZ9yuC88/mqdefault.jpg" src="//i1.ytimg.com/vi/LkLnZ9yuC88/mqdefault.jpg" data-group-key="thumb-group-2">
+  <img width="280" alt="Thumbnail" src="//i4.ytimg.com/vi/s_iwrt7D5OA/mqdefault.jpg">
+  <img width="280" data-thumb="//i3.ytimg.com/vi/R-7ZhAzcSs4/mqdefault.jpg" src="//i3.ytimg.com/vi/R-7ZhAzcSs4/mqdefault.jpg" alt="Thumbnail" data-group-key="thumb-group-4">
+  <img width="280" data-thumb="//i2.ytimg.com/vi/MMq6eaKQRH4/mqdefault.jpg" src="//i2.ytimg.com/vi/MMq6eaKQRH4/mqdefault.jpg" alt="Thumbnail" data-group-key="thumb-group-6">
+  <img width="280" src="//i3.ytimg.com/vi/ZlWUvhmuZlY/mqdefault.jpg" alt="Thumbnail">
 </div>

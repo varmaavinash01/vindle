@@ -1,20 +1,64 @@
-<div class="well">
-  <h2>All Bundles </h2>
-  <%= @bundles.to_json if @bundles %>
-</div><br>
+<style>
+.bundle-box {
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 3px #AAB1AA;
+    float: left;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    min-height: 150px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    width: 20%;
+    height: 15%;
+    word-wrap: break-word;
+    position: relative;
+}
 
-<div class="well">
-  <a role="button" class="btn btn-primary" data-toggle="modal" href="#newBundleForm"> + Add bundle </a>
+.img-mugshot {
+  max-width:50px;
+  padding-right:2px;
+  padding-bottom:2px;
+}
+
+.bundle-container {
+  height: auto;
+  width: 90%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+</style>
+<div class="bundle-container">
+  <h2>All Bundles </h2>   <a role="button" class="btn btn-primary" data-toggle="modal" href="#newBundleForm"> + Add bundle </a>
+  <br><br><br>
+  <div>
+  <% @bundles.each do |bundle| %>
+    <a target="_blank" href="/bundles/<%= bundle["bid"] %>">
+      <div class="bundle-box ">
+        <h2 style="text-align: center;"><%= bundle["bundle_name"] %></h2>
+        <h1 style="text-align: center;"><%= bundle["videos"].count %></h1> <div style="text-align: center;">Videos</div> <br>
+        <span style="text-align: left;">
+         Added by <br><br> <img src="<%= bundle["created_by"]["image"]%>" class="img-mugshot" />  <%= bundle["created_by"]["name"] %><br> on  <%= Time.parse(bundle["create_time"]) %>
+        </style>
+      </div>
+    </a>
+  <% end %>
+</div>
 </div>
 
 <div id="newBundleForm" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <%= form_tag('/bundles', :method => "post") do %>
-    <fieldset>
-      <legend> Add new bundle </legend>
-      <%= hidden_field_tag("user_id" , @user["uid"]) %>
-      <label>Bundle Name </label>
-      <%= text_field_tag('bname') %>
-      <%= submit_tag '+ Add' , :class => "btn btn-success" %>
-    </fieldset>
-  <% end %>
+  <div class="well">
+    <%= form_tag('/bundles', :method => "post") do %>
+      <fieldset>
+        <legend> Add new bundle </legend>
+        <%= hidden_field_tag("user_id" , @user["uid"]) %>
+        <label>Bundle Name </label>
+        <%= text_field_tag('bname', "", :autofocus => "true") %>
+        &nbsp;<%= submit_tag '+ Add' , :class => "btn btn-success", :style => "margin-top: -12px;" %>
+      </fieldset>
+    <% end %>
+  </div>
 </div>
