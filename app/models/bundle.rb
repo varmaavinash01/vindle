@@ -33,6 +33,21 @@ class Bundle
       bundle
     end
 
+    def pushVid(bid, vid)
+      bundle = _read(bid)
+      if bundle
+        bundle["videos"].push vid
+      end
+      save(bundle)
+    end
+    
+    ## TODO make this instance method
+    def removeVid(bid, vid)
+      bundle = _read(bid)
+      bundle["videos"].delete(vid)
+      save(bundle)
+    end
+    
     def delete(id)
     end
 

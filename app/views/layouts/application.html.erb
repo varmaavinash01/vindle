@@ -5,18 +5,24 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag    "bootstrap.min" %>
   <%= javascript_include_tag "application" %>
-  <!-- TODO migrate following scripts to ec2--!>
+  <!-- TODO migrate following scripts to ec2 -->
   <script src="http://static.scripting.com/github/bootstrap2/js/jquery.js"></script>
   <script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-transition.js"></script>
   <script src="http://static.scripting.com/github/bootstrap2/js/bootstrap-modal.js"></script>
   <%= csrf_meta_tag %>
+  <link href='http://fonts.googleapis.com/css?family=Prosto+One' rel='stylesheet' type='text/css'>
+  <style>
+    .user-box {
+      margin-left: 50px;
+      font-family: 'Prosto One', cursive;
+    }
+  </style>
 </head>
 <body>
 <% if @user %>
-  <div class="well">
-    <h2> User info </h2>
-    <%= @user.to_json if @user %> <br><br>
-    <a href="/auth/logout" class="btn btn-danger">Logout</a>
+  <div class="user-box">
+    <h3>Welcome <a href="#"><%= @user["name"] %> </a></h3>
+    <a href="/auth/logout" >Logout</a>
   </div><br>
 <% end %>
 <%= yield %>

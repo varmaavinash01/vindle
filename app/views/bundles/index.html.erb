@@ -1,4 +1,73 @@
 <style>
+
+.container {
+  background: #f3f3f3;
+  height: 100%;
+  width: 100%;
+  display: block;
+  padding: 10px;
+}
+
+.event-card {
+  height: 150px;
+  width: 250px;
+  background: #ffffff;
+  display: block;
+  padding: 20px;
+  border-style:solid;
+  border-color:#C0C0C0;
+  border-width:1px;
+  display:inline-block;
+  position: relative;
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  display: inline-block;
+  width: 5px;
+  background-color: #3d89af;
+  height: 40px;
+  filter:alpha(opacity=40);
+  float: left;
+  margin-left: -21px;
+  #margin-top: 20px;
+}
+
+.event-title {
+  #margin-top: 20px;
+  color: #333333;
+  font-family: "proxima-nova-1","proxima-nova-2",sans-serif;
+  font-size: 17px;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.time {
+font-size: 14px;
+font-weight: 800;
+color: #049cdb;
+}
+
+.presenter {
+  font-size: 12px;
+  font-weight: 800;
+  color: #5e5e5e;
+  margin-top: 25px;
+}
+
+.presenter-details {
+  margin-left: 70px;
+  margin-top: -65px;
+}
+.pic {
+  margin: 5px;
+}
+
 .bundle-box {
     background-color: #FFFFFF;
     box-shadow: 0px 0px 3px #AAB1AA;
@@ -30,24 +99,35 @@
   margin-left: 2%;
   margin-right: 2%;
 }
+
+.bundle-head {
+  margin-left: 50px;
+  margin-bottom: 50px;
+  font-family: 'Prosto One', cursive;
+}
 </style>
-<div class="bundle-container">
-  <h2>All Bundles </h2>   <a role="button" class="btn btn-primary" data-toggle="modal" href="#newBundleForm"> + Add bundle </a>
-  <br><br><br>
-  <div>
+
+<div class="container">
+  <div class="bundle-head">
+    <h2>All Bundles </h2>   <a role="button" data-toggle="modal" href="#newBundleForm"> + Add bundle </a>
+  </div>
   <% @bundles.each do |bundle| %>
     <a target="_blank" href="/bundles/<%= bundle["bid"] %>">
-      <div class="bundle-box ">
-        <h2 style="text-align: center;"><%= bundle["bundle_name"] %></h2>
-        <h1 style="text-align: center;"><%= bundle["videos"].count %></h1> <div style="text-align: center;">Videos</div> <br>
-        <span style="text-align: left;">
-         Added by <br><br> <img src="<%= bundle["created_by"]["image"]%>" class="img-mugshot" />  <%= bundle["created_by"]["name"] %><br> on  <%= Time.parse(bundle["create_time"]) %>
-        </style>
+      <div class="event-card">
+        <div class="tag">
+        </div>
+        <div class="event-title">
+          <%= bundle["bundle_name"] %>
+        </div>
+        <span class="time"><span class="label label-info"><%= bundle["videos"].count %>  Videos</span> </span>
+        <div class="presenter">
+         Added by <br> <img class="pic"  src="<%= bundle["created_by"]["image"]%>" />  <div class="presenter-details"><%= bundle["created_by"]["name"] %><br> on  <%= Time.parse(bundle["create_time"]) %></div>
+        </div>
       </div>
     </a>
   <% end %>
 </div>
-</div>
+
 
 <div id="newBundleForm" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="well">

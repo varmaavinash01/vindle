@@ -16,6 +16,16 @@ class BundlesController < ApplicationController
 
   def show
     @bundle = Bundle.find(params[:id])
+    @videos = []
+    @bundle["videos"].each do | vid |
+      video = Video.find(vid)
+      if video
+        @videos.push video
+      else
+        Bundle.removeVid(@bundle["bid"], vid)
+        ##  need to delete zombie video from bundle
+      end
+    end
   end
 
   def edit
